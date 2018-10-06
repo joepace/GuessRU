@@ -1,0 +1,11 @@
+.streetView {
+    width: 400px;
+    height: 400px;
+    background-color: deepskyblue;
+}
+
+.guess {
+    width: 400px;
+    height: 400px;
+    background-color: lightcoral;
+}
