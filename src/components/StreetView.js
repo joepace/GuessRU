@@ -5,7 +5,7 @@ import Panorama from './Panorama'
 class StreetView extends Component {
     render() {
         const coords = generateLocation();
-        const location = {lat: coords[0], lng: coords[1]};
+        const location = {lat: coords[0], lng: coords[1], campusName: coords[2]};
         return (
             <div className="row">
                 <div className="streetView col-6">
@@ -25,10 +25,10 @@ class StreetView extends Component {
                 <div className="guess col-6">
                     <h2>Which campus are you on?</h2>
                 
-                    <button id = "CA" onClick = {() => checkAnswer(1)}>College Ave</button><br/>
-                    <button id = "Livi" onClick = {() => checkAnswer(2)}>Livingston</button><br/>
-                    <button id = "Busch" onClick = {() => checkAnswer(3)}>Busch</button><br/>
-                    <button id = "CD" onClick = {() => checkAnswer(4)}>Cook/Douglass</button><br/>
+                    <button id = "CA" onClick = {() => checkAnswer(1, location.campusName)}>College Ave</button><br/>
+                    <button id = "Livi" onClick = {() => checkAnswer(2, location.campusName)}>Livingston</button><br/>
+                    <button id = "Busch" onClick = {() => checkAnswer(3, location.campusName)}>Busch</button><br/>
+                    <button id = "CD" onClick = {() => checkAnswer(4, location.campusName)}>Cook/Douglass</button><br/>
                     <button onClick = {playAgain}>The Void (Black Screen) - Click to reload!</button>
                     <div id="overlay">
                         <div id="overlayText"></div>
@@ -39,7 +39,7 @@ class StreetView extends Component {
         );
     }
 }
-function checkAnswer(guess) {
+function checkAnswer(guess, name) {
     if (campus === guess) {
         // Call function to display "Correct!"
         var correct = document.getElementById("overlay");
@@ -50,7 +50,7 @@ function checkAnswer(guess) {
         // Display correct answer
         var incorrect = document.getElementById("overlay");
         incorrect.style.display = "block";
-        document.getElementById("overlayText").innerText = "Sorry, that's incorrect. <br/>The correct answer was " + campusName + ".";
+        document.getElementById("overlayText").innerText = "Sorry, that's incorrect.\nYou are on " + name + ".";
         incorrect.style.backgroundColor = "rgba(230, 42, 18, 0.7)";
 
     }
@@ -68,9 +68,9 @@ function generateCampus() {
 
 // Global campus ID
 const campus = generateCampus();
-const campusName;
 function generateLocation() {
     console.log(campus);
+    var campusName;
     let lat;
     let long;
     switch (campus) {
@@ -100,7 +100,7 @@ function generateLocation() {
     }
     console.log("Latitude: " + lat);
     console.log("Longitude: " + long);
-    return [lat, long];
+    return [lat, long, campusName];
 }
 
 export default StreetView;
