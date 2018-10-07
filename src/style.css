@@ -7,8 +7,12 @@ form {
     padding-left: 20%;
 }
 
-.container, .row {
+.container {
     min-height: 100vh;
+}
+
+.row {
+    min-height: 90vh;
 }
 
 .streetView {
