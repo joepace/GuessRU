@@ -24,15 +24,16 @@ class StreetView extends Component {
                 </div>
                 <div className="guess col-6">
                     <h2>Which campus are you on?</h2>
-                
-                    <button id = "CA" onClick = {() => checkAnswer(1, location.campusName)}>College Ave</button><br/>
-                    <button id = "Livi" onClick = {() => checkAnswer(2, location.campusName)}>Livingston</button><br/>
-                    <button id = "Busch" onClick = {() => checkAnswer(3, location.campusName)}>Busch</button><br/>
-                    <button id = "CD" onClick = {() => checkAnswer(4, location.campusName)}>Cook/Douglass</button><br/>
-                    <button onClick = {playAgain}>The Void (Black Screen) - Click to reload!</button>
+                    <div className="btn-group-vertical">
+                        <button className="btn btn-lg" id = "CA" onClick = {() => checkAnswer(1, location.campusName)}>College Ave</button><br/>
+                        <button className="btn btn-lg" id = "Livi" onClick = {() => checkAnswer(2, location.campusName)}>Livingston</button><br/>
+                        <button className="btn btn-lg" id = "Busch" onClick = {() => checkAnswer(3, location.campusName)}>Busch</button><br/>
+                        <button className="btn btn-lg" id = "CD" onClick = {() => checkAnswer(4, location.campusName)}>Cook/Douglass</button><br/>                        
+                    </div>
+                    
                     <div id="overlay">
                         <div id="overlayText"></div>
-                        <button id ="overlayButton" onClick = {playAgain}>Play Again?</button>
+                        <button className="btn btn-lg play-again" id ="overlayButton" onClick = {playAgain}>Play Again?</button>
                     </div>
                 </div>       
             </div>

@@ -10,6 +10,20 @@ class Panorama extends Component {
     const pano = new window.google.maps.StreetViewPanorama(
       document.getElementById(this.props.id),
       this.props.options);
+      var streetViewService = new window.google.maps.StreetViewService();
+      var STREETVIEW_MAX_DISTANCE = 100;
+      var latLng = new window.google.maps.LatLng(this.props.options.position);
+      console.log(latLng);
+      streetViewService.getPanoramaByLocation(latLng, STREETVIEW_MAX_DISTANCE, function (streetViewPanoramaData, status) {
+          if (status === window.google.maps.StreetViewStatus.OK) {
+              // ok              
+              console.log("it's gucci");
+          } else {
+              // no street view available in this range, or some error occurred
+              playAgain();
+              console.log("no image");
+          }
+      });
   }
 
   componentDidMount() {
@@ -34,6 +48,11 @@ class Panorama extends Component {
       <div id={this.props.id} />
     );
   }
+}
+
+function playAgain() {
+  // Refreshes the page
+  window.location.reload();
 }
 
 export default Panorama

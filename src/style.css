@@ -7,6 +7,24 @@ form {
     padding-left: 20%;
 }
 
+.btn:hover {
+    background-color:  #bfbfbf;
+}
+
+.play-again {
+    color: white;
+    background-color: #282c34;
+    /* CSS below centers it in the middle of the page */
+    position: fixed;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.play-again:hover {
+    background-color :#424855; 
+}
+
 .container {
     min-height: 100vh;
 }
