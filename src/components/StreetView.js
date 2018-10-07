@@ -64,13 +64,13 @@ function playAgain() {
 }
 
 function generateCampus() {
-    return Math.floor(Math.random() * 3 + 1);
+    return Math.floor(Math.random() * 4 + 1);
 }
 
 // Global campus ID
 const campus = generateCampus();
 function generateLocation() {
-    console.log(campus);
+    console.log("CampusID: " + campus);
     var campusName;
     let lat;
     let long;
