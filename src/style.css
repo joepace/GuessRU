@@ -1,6 +1,11 @@
 h1 {
     color: white;
 }
+
+.container, .row {
+    min-height: 100vh;
+}
+
 .streetView {
     width: auto;
     height: auto;
@@ -8,7 +13,7 @@ h1 {
 
 .guess {
     width: auto;
-    height: 400px;
+    height: auto;
     background-color: lightcoral;
 }
 
