@@ -1,5 +1,5 @@
 # GuessRU
-Project for HackRU Fall 2018
+Project for HackRU Fall 2018 built by Joe Redling-Pace and Andrew Hernandez.
 ## Inspiration
 All of the days in high school where we would sit in the library playing GeoGuessr instead of doing work.
 ## What it does
