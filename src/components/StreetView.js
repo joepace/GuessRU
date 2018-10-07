@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import Map from './Map'
+import Panorama from './Panorama'
 
 class StreetView extends Component {
     render() {
         const coords = generateLocation();
         const location = {lat: coords[0], lng: coords[1]};
         return (
-            <div className="streetView col-8">
+            <div className="streetView col-6">
                 {/* StreetView section goes here */}
-                
-                <Map
-                    id="myMap"
+                <Panorama 
+                    id="myPanorama"
                     options={{
-                        center: location,
-                        zoom: 14
-                    }}
-                    onMapLoad={map => {
-                    var marker = new window.google.maps.Marker({
                         position: location,
-                        map: map,
-                        title: 'You are here!'
-                    });
+                        pov: {
+                            heading: 34,
+                            pitch: 10
+                        },
+                        addressControl: false
                     }}
                 />
             </div>        
@@ -64,3 +61,21 @@ function generateLocation() {
 }
 
 export default StreetView;
+
+/* For rendering a Map
+    <Map
+        id="myMap"
+        options={{
+            center: location,
+            zoom: 14
+        }}
+        onMapLoad={map => {
+        // eslint-disable-next-line
+        var marker = new window.google.maps.Marker({
+            position: location,
+            map: map,
+            title: 'You are here!'
+        });
+        }}
+    />
+*/
